@@ -16,15 +16,61 @@ $(function() {
   $(".pokemon-def").append(pokemon.defense); 
   
   // TODO: Add ability names here to the <ul> with class .ability-names
+  $(".ability-names").add("<li>" +  + "</li>");
   
   // TODO: Add egg group names here to a <ul> that you created
-
+  
+  $(".egg_group1").append(pokemon.egg_groups[0].name);
+  $(".egg_group2").append(pokemon.egg_groups[1].name);
   // TODO: Add move names in alphabetical order here to the existing <ul>
-  // TODO: Add ONLY level up move names to the <ul> you created
+   
+   
+   
+   
+   
+   //Note the code below was used in attempted to automatically sort through each move and check to see if 
+   //If was in alphabetical order. Didn't work, kept crashing.
+   
+   /*var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+   var letter = 0;
+   var notSorted = true;
+   var i = 0;
+   var letterSearched = 0;
+   
+    while(notSorted){
+      //Checks if the name at current positon is equal to letter in alphabet
+      if(pokemon.moves[i].name.charAt() == alphabet.charAt(letter).toUpperCase() ){
+        //keeps track on how many times it has looped over this letter
+        letterSearched++;
+        //Appends that word
+        $(".movesInOrder").append("<li>" + pokemon.moves[i].name + "</li>");
+        continue;
+      }else if(letterSearched == 10){
+          letter++
+          letterSearched = 0;
+      }else if(letterSearched == 10 && pokemon.moves[i].name.charAt() == "Z"){
+        notSorted = false;
+      } else{
+        i++;
+        continue;
+      }
+      
+      
+      
+      
+    }*/
+    
+    
+    
+  // Added an unsorted List of level up only moves.
+  for(var index = 0; index < pokemon.moves.length; index++){
+      if(pokemon.moves[index].learn_type == "level up"){  
+        $(".movesInLevelUp").append("<li>" + pokemon.moves[index].name + "</li>");
+      }
+  }
 
   // Now... take a deep breath and go back to your move lists.
   // TODO: Find a way to use variables to make your code more readable!
-
   // (extra credit) TODO:  either...
   //   1. Change up your code so that visitors can select which pokemon (squirtle, charmander, bulbasaur, etc.)
   //   they want to see, and then show that pokemon's stats and picture, or...
